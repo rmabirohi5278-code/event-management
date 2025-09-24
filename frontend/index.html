@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Planning Assistant</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Optional: Add Google Fonts for a nicer font if desired -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"> -->
+</head>
+<body>
+    <header>
+        <h1>Event Planning Assistant</h1>
+    </header>
+    <nav>
+        <button class="nav-btn active" data-target="checklist">Checklist Generator</button>
+        <button class="nav-btn" data-target="guestlist">Guest List Planner</button>
+        <button class="nav-btn" data-target="budget">Budget Planner</button>
+    </nav>
+
+    <main>
+        <section id="checklist" class="active">
+            <h2>Event Checklist Generator</h2>
+            <form>
+                <label for="eventType">Select Event Type:</label>
+                <select id="eventType">
+                    <option value="wedding">Wedding</option>
+                    <option value="birthday">Birthday</option>
+                    <option value="conference">Conference</option>
+                    <option value="custom">Custom</option>
+                </select>
+                <button type="button" id="generateChecklist">Generate Checklist</button>
+            </form>
+            <div id="checklistOutput">
+                <!-- Checklist items will be loaded here by JavaScript -->
+            </div>
+        </section>
+
+        <section id="guestlist">
+            <h2>Guest List Planner</h2>
+            <form id="addGuestForm">
+                <input type="text" id="guestName" placeholder="Guest Name" required>
+                <input type="text" id="guestEmail" placeholder="Email (Optional)">
+                <input type="number" id="guestPlusOne" placeholder="+1 (0 or 1)" min="0" max="1" value="0">
+                <button type="submit">Add Guest</button>
+            </form>
+            <div id="guestListSummary">
+                <p>Total Guests (incl. +1): <span id="totalGuests">0</span></p>
+                <p>Total RSVPs (incl. +1): <span id="totalRSVPs">0</span></p>
+            </div>
+            <ul id="guestList">
+                <!-- Guests will be listed here by JavaScript -->
+            </ul>
+        </section>
+
+        <section id="budget">
+            <h2>Event Budget Planner</h2>
+            <form id="addBudgetItemForm">
+                <input type="text" id="budgetItemName" placeholder="Item Description" required>
+                <input type="number" id="budgetItemCost" placeholder="Cost" step="0.01" required>
+                <button type="submit">Add Budget Item</button>
+            </form>
+            <div id="budgetSummary">
+                <p>Total Estimated Cost: $<span id="totalBudget">0.00</span></p>
+            </div>
+            <ul id="budgetList">
+                <!-- Budget items will be listed here by JavaScript -->
+            </ul>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
